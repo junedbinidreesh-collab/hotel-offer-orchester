@@ -1,0 +1,39 @@
+{
+  "name": "hotel-offer-orchestrator",
+  "version": "1.0.0",
+  "description": "Aggregates hotel offers from two suppliers using Temporal, Express and Redis",
+  "private": true,
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc -p tsconfig.build.json",
+    "start": "node dist/index.js",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:unit": "vitest run tests/unit",
+    "test:integration": "vitest run tests/integration",
+    "test:workflow": "TEMPORAL_TESTS=1 vitest run tests/workflow"
+  },
+  "dependencies": {
+    "@temporalio/activity": "^1.11.6",
+    "@temporalio/client": "^1.11.6",
+    "@temporalio/common": "^1.11.6",
+    "@temporalio/worker": "^1.11.6",
+    "@temporalio/workflow": "^1.11.6",
+    "express": "^5.1.0",
+    "ioredis": "^5.4.1",
+    "pino": "^9.5.0",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "@temporalio/testing": "^1.11.6",
+    "@types/express": "^5.0.0",
+    "@types/node": "^20.17.0",
+    "@types/supertest": "^6.0.2",
+    "ioredis-mock": "^8.9.0",
+    "supertest": "^7.0.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.6.3",
+    "vitest": "^2.1.8"
+  }
+}
